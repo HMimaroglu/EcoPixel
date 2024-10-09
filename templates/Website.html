@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPixel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        @font-face {
+            font-family: "POSTERABLE";
+            src: url({{ url_for('static', filename='POSTERABLE.ttf') }});
+        }
+    </style>
+</head>
+<body>
+    <h1>EcoPixel</h1>
+
+    <video autoplay loop muted src="{{ url_for('static', filename='EcoPixelBackground.mp4') }}"></video>
+    <img src="{{ url_for('static', filename='uploadimg.png') }}" id="upload-image">
+    
+    <input type="file" id="input-file" accept="image/jpeg, image/jpg, image/png" style="display: none;">    
+    <button onclick="identifyGarbage()">Identify Garbage</button>
+
+    <p id="result"></p>
+    <img id="inputImage" style="display: none;">
+
+    <script>
+        document.getElementById("upload-image").addEventListener("click", function() {
+            document.getElementById("input-file").click();
+        });
+
+        document.getElementById("input-file").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const read = new FileReader();
+
+                read.onload = function(e) {
+                    const resultParagraph = document.getElementById("result");
+                    resultParagraph.innerHTML = `<img src="${e.target.result}">`;
+                };
+
+                read.readAsDataURL(file);
+            }
+        });
+
+        function identifyGarbage() {
+            const file = (document.getElementById("input-file")).files[0];
+
+            if (!file) {
+                alert("You need to upload an image first!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                })
+                
+                .then(response => response.json())
+                .then(data => {
+                    alert("Your Trash Is " + data.class); 
+                })
+
+        }
+    </script>
+</body>
+</html>

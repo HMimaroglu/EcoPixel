@@ -1,0 +1,120 @@
+@font-face {
+    /*imported font*/
+    font-family: "POSTERABLE";
+    src: url(POSTERABLE.ttf)
+}
+
+html,
+body {
+    /*structures the page*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin-top: 0%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+video {
+    /*structures background video*/
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media(min-aspect-ratio: 16/9) {
+    /*sets video ratio*/
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+h1 {
+    /* EcoPixel title design*/
+    margin-top: 70px;
+    margin-bottom: 45px;
+    font-family: "POSTERABLE";
+    font-size: 60px;
+    -webkit-text-stroke: 2px white;
+    color: black;
+    transition: transform .4s;
+}
+
+h1:hover {
+    /*EcoPixel title design effect while hovering*/
+    -webkit-text-stroke: 2px #6dfda2;
+    transform: scale(1.08);
+    transition: transform .4s, -webkit-text-stroke .4s;
+}
+
+img {
+    /*design of the centered cloud upload image that takes inputted images*/
+    max-width: 12.5%;
+    height: auto;
+    padding: -20px -10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: rgb(234, 255, 246);
+    transform: scale(1.5);
+    opacity: 90%;
+    transition: transform .4s, background-color .4s;
+}
+
+img:hover {
+    /*effect for the image/button while hovering*/
+    background-color: #6dfda2;
+    transform: scale(1.54);
+    transition: transform .4s, background-color .4s;
+}
+
+button {
+    /*design for the identify garbage button*/
+    background-color: rgb(52, 52, 52);
+    color: rgb(235, 240, 238);
+    margin-top: 60px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "POSTERABLE";
+    border: 2px solid white;
+    border-radius: 5.5px;
+    transform: scale(1);
+    transition: transform .4s, background-color .4s;
+}
+
+button:hover {
+    /*special effects when hovering over the identify garbage button*/
+    background-color: #6dfda2;
+    color: rgb(52, 52, 52);
+    transform: scale(1.06);
+    transition: transform .4s, background-color .4s;
+}
+
+p {
+    /*inputted image preview deisgn*/
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: rgb(234, 255, 246);
+    width: 200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px;
+    transform: scale(1);
+    transition: transform .4s, background-color .4s;
+}
+
+p:hover {
+    /*special effects for image preview*/
+    background-color: #6dfda2;
+    transform: scale(1.08);
+    transition: transform .4s, background-color .4s;
+}
