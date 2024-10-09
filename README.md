@@ -1,6 +1,6 @@
 # Ecopixel
 
-Project created by Bleron Balidemaj and Hunter Mimaroglu
+Project created by Bleron Balidemaj and Hunter M
 
 Languages: HTML, CSS, and Python
 
