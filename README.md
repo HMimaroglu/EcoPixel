@@ -22,4 +22,4 @@ or
 
 Enter the python env using:
 (mac) source venv/bin/activate
-(win) venv\Scripts\activate
+(win) venv\Scripts\activate 
